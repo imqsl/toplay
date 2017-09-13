@@ -13,6 +13,7 @@ import java.util.List;
  * Created by imqsl on 2017/9/11.
  */
 public interface PlayDao {
+
     //动态查询
     @SelectProvider(type = PlayDynaSqlProvider.class, method = "selectWithParams")
     List<Play> dynaSelect(Play play);

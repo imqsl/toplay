@@ -8,12 +8,12 @@ import java.util.Date;
  */
 public class Activity implements Serializable {
     private Integer act_id;        //活动id
-    private String act_title;  //活动标题
-    private String act_content;//活动内容
-    private String type;          //活动类型
+    private String act_title;      //活动标题
+    private String act_content;    //活动内容
+    private String type;           //活动类型
     private Integer status;        //活动状态
-    private Date create_time;
-    private Date end_time;
+    private Date create_time;      //创建时间
+    private Date end_time;         //截止时间
     public Activity() {
     }
 

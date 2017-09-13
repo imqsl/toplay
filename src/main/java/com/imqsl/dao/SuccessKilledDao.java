@@ -4,6 +4,7 @@ import com.imqsl.dao.provider.SuccessKilledDynaSqlProvider;
 import com.imqsl.domain.SuccessKilled;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.InsertProvider;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.SelectProvider;
 
 import java.util.List;
@@ -22,7 +23,8 @@ public interface SuccessKilledDao {
     @SelectProvider(type = SuccessKilledDynaSqlProvider.class, method = "selectWithParams")
     List<SuccessKilled> dynaSelect(SuccessKilled successKilled);
 
-    //根据用户id删除
-    @Delete("delete from " + SUCCESSKILLEDTABLE + " where user_id=#{user_id}")
-    void delete(Integer user_id);
+    //删除
+    @Delete("delete from " + SUCCESSKILLEDTABLE + " where user_id=#{user_id} and seckill_id=#{seckill_id}")
+    void delete(@Param("user_id") Integer user_id, @Param("seckill_id") Integer seckill_id);
+
 }
