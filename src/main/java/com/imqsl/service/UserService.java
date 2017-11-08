@@ -9,16 +9,16 @@ import java.util.List;
  */
 public interface UserService {
     //根据学号和密码登录
-    User login(Integer stu_id, String password);
+    User login(Long stuId, String password);
 
     //根据id查询用户
-    User findUserById(Integer user_id);
+    User findUserById(Integer id);
 
     //获得所有用户
     List<User> findUser(User user);
 
     //根据id删除用户
-    void removeUserById(Integer user_id);
+    void removeUserById(Integer id);
 
     //修改用户
     void modifyUser(User user);

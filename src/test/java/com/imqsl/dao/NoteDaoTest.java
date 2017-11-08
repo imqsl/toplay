@@ -1,6 +1,5 @@
 package com.imqsl.dao;
 
-import com.imqsl.dao.provider.NoteDynaSqlProvider;
 import com.imqsl.domain.Note;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -13,45 +12,44 @@ import java.util.List;
 import static org.junit.Assert.*;
 
 /**
- * Created by imqsl on 2017/9/11.
+ * Created by imqsl on 2017-10-31.
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("classpath:spring/spring-dao.xml")
 public class NoteDaoTest {
     @Autowired
     NoteDao noteDao;
-
     @Test
     public void dynaInsertNote() throws Exception {
-        Note note = new Note();
-        note.setTitle("推荐0");
-        note.setContent("00000000000");
-        note.setType("1");
-        noteDao.dynaInsertNote(note);
+        Note note=new Note("通知1","您有一个好通知","2");
+        noteDao.insert(note);
+    }
+
+    @Test
+    public void selectById() throws Exception {
+        Note note=noteDao.selectById(3);
+        System.out.println(note);
     }
 
     @Test
     public void deleteNote() throws Exception {
-        noteDao.deleteNote(10);
+        noteDao.deleteById(3);
     }
 
     @Test
     public void selectWithParams() throws Exception {
-        Note note = new Note();
-        note.setTitle("推荐");
-        List<Note> noteList = noteDao.selectWithParams(note);
-        for (Note note1 : noteList) {
-            System.out.println(note1.toString());
-        }
-
-    }
-    @Test
-    public void updateWithParams(){
         Note note=new Note();
-        note.setId(4);
-        note.setTitle("活动");
-        noteDao.dynaUpdate(note);
+        List<Note> noteList=noteDao.selectWithParams(note);
+        for (Note note1:noteList) {
+            System.out.println(note1);
+        }
     }
 
+    @Test
+    public void dynaUpdate() throws Exception {
+        Note note=noteDao.selectById(3);
+        note.setType("9");
+        noteDao.update(note);
+    }
 
 }

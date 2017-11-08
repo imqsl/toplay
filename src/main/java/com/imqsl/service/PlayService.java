@@ -12,10 +12,16 @@ public interface PlayService {
     void addPlay(Play play);
 
     //用户退出活动
-    void deletePlay(Play play);
+    void removePlay(Play play);
+
+    //根据id删除活动
+    void removePlayById(Integer id);
 
     //查询活动
     List<Play> findPlay(Play play);
+
+    //根据id查询
+    Play findPlayById(Integer id);
 
     //修改活动
     void modifyPlay(Play play);

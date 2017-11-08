@@ -6,10 +6,10 @@ import java.io.Serializable;
  * Created by imqsl on 2017/9/7.
  */
 public class Note implements Serializable {
-private Integer id;              //id
-private String title;        //标题
-private String content;      //内容
-private String type;            //类型
+    private Integer id;              //note_id
+    private String title;        //标题
+    private String content;      //内容
+    private String type;            //类型
 
     public Note() {
     }
@@ -58,16 +58,16 @@ private String type;            //类型
                 "id=" + id +
                 ", title='" + title + '\'' +
                 ", content='" + content + '\'' +
-                ", type=" + type +
+                ", type='" + type + '\'' +
                 '}';
     }
 }
 /*
 * CREATE TABLE `note`(
-  `id` BIGINT(20) NOT NULL AUTO_INCREMENT,
+  `note_id` BIGINT(20) NOT NULL AUTO_INCREMENT,
   `title` VARCHAR(45) NOT NULL ,
   `content` LONGTEXT NOT NULL ,
   `type` INT(4) NOT NULL ,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`note_id`)
 )ENGINE =InnoDB DEFAULT CHARSET =utf8;
 * */

@@ -9,13 +9,15 @@ public class Manager implements Serializable {
     private Integer id;          //id
     private String name;     //用户名
     private String password;      //密码
+    private Integer stat;      //状态
 
     public Manager() {
     }
 
-    public Manager(String name, String password) {
+    public Manager(String name, String password, Integer stat) {
         this.name = name;
         this.password = password;
+        this.stat = stat;
     }
 
     public Integer getId() {
@@ -42,12 +44,21 @@ public class Manager implements Serializable {
         this.password = password;
     }
 
+    public Integer getStat() {
+        return stat;
+    }
+
+    public void setStat(Integer status) {
+        this.stat = status;
+    }
+
     @Override
     public String toString() {
-        return "manager{" +
+        return "Manager{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", password='" + password + '\'' +
+                ", stat=" + stat+
                 '}';
     }
 }

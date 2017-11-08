@@ -15,24 +15,21 @@ public class ActivityDynaSqlProvider {
             {
                 SELECT("*");
                 FROM(ACTIVITYTABLE);
-                if (activity.getAct_content() != null && !activity.getAct_content().equals("")) {
-                    WHERE("act_content LIKE CONCAT ('%',#{act_content},'%')");
+
+                if (activity.getActTitle() != null && !activity.getActTitle().equals("")) {
+                    WHERE("act_title LIKE CONCAT ('%',#{actTitle},'%')");
                 }
-                if (activity.getAct_title() != null && !activity.getAct_title().equals("")) {
-                    WHERE("act_title LIKE CONCAT ('%',#{act_title},'%')");
-                }
-                if (activity.getCreate_time() != null && !activity.getCreate_time().equals("")) {
-                    WHERE("create_time LIKE CONCAT ('%',#{create_time},'%')");
-                }
-                if (activity.getEnd_time() != null && !activity.getEnd_time().equals("")) {
-                    WHERE("end_time LIKE CONCAT ('%',#{end_time},'%')");
-                }
-                if (activity.getStatus() != null && !activity.getStatus().equals("")) {
-                    WHERE("status LIKE CONCAT ('%',#{status},'%')");
+
+                if (activity.getStat() != null && !activity.getStat().equals("")) {
+                    WHERE("stat LIKE CONCAT ('%',#{stat},'%')");
                 }
                 if (activity.getType() != null && !activity.getType().equals("")) {
                     WHERE("type LIKE CONCAT ('%',#{type},'%')");
                 }
+                if (activity.getSponsorId()!= null && !activity.getSponsorId().equals("")) {
+                    WHERE("sponsor_id LIKE CONCAT ('%',#{sponsorId},'%')");
+                }
+
             }
         }.toString();
     }
@@ -43,20 +40,20 @@ public class ActivityDynaSqlProvider {
             {
                 SELECT("count(*)");
                 FROM(ACTIVITYTABLE);
-                if (activity.getAct_content() != null && !activity.getAct_content().equals("")) {
-                    WHERE("act_content LIKE CONCAT ('%',#{act_content},'%')");
+                if (activity.getActContent() != null && !activity.getActContent().equals("")) {
+                    WHERE("act_content LIKE CONCAT ('%',#{actContent},'%')");
                 }
-                if (activity.getAct_title() != null && !activity.getAct_title().equals("")) {
-                    WHERE("act_title LIKE CONCAT ('%',#{act_title},'%')");
+                if (activity.getActTitle() != null && !activity.getActTitle().equals("")) {
+                    WHERE("actcTitle LIKE CONCAT ('%',#{actTitle},'%')");
                 }
-                if (activity.getCreate_time() != null && !activity.getCreate_time().equals("")) {
-                    WHERE("create_time LIKE CONCAT ('%',#{create_time},'%')");
+                if (activity.getCreateTime() != null && !activity.getCreateTime().equals("")) {
+                    WHERE("create_Time LIKE CONCAT ('%',#{createTime},'%')");
                 }
-                if (activity.getEnd_time() != null && !activity.getEnd_time().equals("")) {
-                    WHERE("end_time LIKE CONCAT ('%',#{end_time},'%')");
+                if (activity.getEndTime() != null && !activity.getEndTime().equals("")) {
+                    WHERE("end_Time LIKE CONCAT ('%',#{endTime},'%')");
                 }
-                if (activity.getStatus() != null && !activity.getStatus().equals("")) {
-                    WHERE("status LIKE CONCAT ('%',#{status},'%')");
+                if (activity.getStat() != null && !activity.getStat().equals("")) {
+                    WHERE("stat LIKE CONCAT ('%',#{stat},'%')");
                 }
                 if (activity.getType() != null && !activity.getType().equals("")) {
                     WHERE("type LIKE CONCAT ('%',#{type},'%')");
@@ -70,20 +67,26 @@ public class ActivityDynaSqlProvider {
         return new SQL() {
             {
                 INSERT_INTO(ACTIVITYTABLE);
-                if (activity.getAct_content() != null && !activity.getAct_content().equals("")) {
-                    VALUES("act_content", "#{act_content}");
+                if (activity.getActContent() != null && !activity.getActContent().equals("")) {
+                    VALUES("act_content", "#{actContent}");
                 }
-                if (activity.getAct_title() != null && !activity.getAct_title().equals("")) {
-                    VALUES("act_title", "#{act_title}");
+                if (activity.getId() != null && !activity.getId().equals("")) {
+                    VALUES("id", "#{id}");
                 }
-                if (activity.getCreate_time() != null && !activity.getCreate_time().equals("")) {
-                    VALUES("create_time", "#{create_time}");
+                if (activity.getSponsorId() != null && !activity.getSponsorId().equals("")) {
+                    VALUES("sponsor_id", "#{sponsorId}");
                 }
-                if (activity.getEnd_time() != null && !activity.getEnd_time().equals("")) {
-                    VALUES("end_time", "#{end_time}");
+                if (activity.getActTitle() != null && !activity.getActTitle().equals("")) {
+                    VALUES("act_title", "#{actTitle}");
                 }
-                if (activity.getStatus() != null && !activity.getStatus().equals("")) {
-                    VALUES("status", "#{status}");
+                if (activity.getCreateTime() != null && !activity.getCreateTime().equals("")) {
+                    VALUES("create_time", "#{createTime}");
+                }
+                if (activity.getEndTime() != null && !activity.getEndTime().equals("")) {
+                    VALUES("end_time", "#{endTime}");
+                }
+                if (activity.getStat() != null && !activity.getStat().equals("")) {
+                    VALUES("stat", "#{stat}");
                 }
                 if (activity.getType() != null && !activity.getType().equals("")) {
                     VALUES("type", "#{type}");
@@ -97,25 +100,25 @@ public class ActivityDynaSqlProvider {
         return new SQL() {
             {
                 UPDATE(ACTIVITYTABLE);
-                if (activity.getAct_content() != null && !activity.getAct_content().equals("")) {
-                    SET("act_content=#{act_content}");
+                if (activity.getActContent() != null && !activity.getActContent().equals("")) {
+                    SET("act_content=#{actContent}");
                 }
-                if (activity.getAct_title() != null && !activity.getAct_title().equals("")) {
-                    SET("act_title=#{act_title}");
+                if (activity.getActTitle() != null && !activity.getActTitle().equals("")) {
+                    SET("act_title=#{actTitle}");
                 }
-                if (activity.getCreate_time() != null && !activity.getCreate_time().equals("")) {
-                    SET("create_time=#{create_time}");
+                if (activity.getCreateTime() != null && !activity.getCreateTime().equals("")) {
+                    SET("create_time=#{createTime}");
                 }
-                if (activity.getEnd_time() != null && !activity.getEnd_time().equals("")) {
-                    SET("end_time=#{end_time}");
+                if (activity.getEndTime() != null && !activity.getEndTime().equals("")) {
+                    SET("end_time=#{endTime}");
                 }
-                if (activity.getStatus() != null && !activity.getStatus().equals("")) {
-                    SET("status=#{status}");
+                if (activity.getStat() != null && !activity.getStat().equals("")) {
+                    SET("stat=#{stat}");
                 }
                 if (activity.getType() != null && !activity.getType().equals("")) {
                     SET("type=#{type}");
                 }
-                WHERE("act_id=#{act_id}");
+                WHERE("id=#{id}");
 
             }
         }.toString();

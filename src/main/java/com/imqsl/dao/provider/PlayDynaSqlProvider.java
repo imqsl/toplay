@@ -15,17 +15,17 @@ public class PlayDynaSqlProvider {
         ) {
             {
                 INSERT_INTO(PLAYTABLE);
-                if (play.getAct_id() != null && !play.getAct_id().equals("")) {
-                    VALUES("act_id", "#{act_id}");
+                if (play.getActId() != null && !play.getActId().equals("")) {
+                    VALUES("act_id", "#{actId}");
                 }
-                if (play.getSponsor_id() != null && !play.getSponsor_id().equals("")) {
-                    VALUES("sponsor_id", "#{sponsor_id}");
+                if (play.getSponsorId() != null && !play.getSponsorId().equals("")) {
+                    VALUES("sponsor_id", "#{sponsorId}");
                 }
-                if (play.getPart_id() != null && !play.getPart_id().equals("")) {
-                    VALUES("part_id", "#{part_id}");
+                if (play.getPartId() != null && !play.getPartId().equals("")) {
+                    VALUES("part_id", "#{partId}");
                 }
-                if (play.getStatus() != null && !play.getStatus().equals("")) {
-                    VALUES("status", "#{status}");
+                if (play.getStat() != null && !play.getStat().equals("")) {
+                    VALUES("stat", "#{stat}");
                 }
                 if (play.getDescription() != null && !play.getDescription().equals("")) {
                     VALUES("description", "#{description}");
@@ -39,20 +39,20 @@ public class PlayDynaSqlProvider {
         return new SQL() {
             {
                 DELETE_FROM(PLAYTABLE);
-                if (play.getP_id() != null && !play.getP_id().equals("")) {
-                    WHERE("p_id=#{p_id}");
+                if (play.getId() != null && !play.getId().equals("")) {
+                    WHERE("id=#{id}");
                 }
-                if (play.getAct_id() != null && !play.getAct_id().equals("")) {
-                    WHERE("act_id=#{act_id}");
+                if (play.getActId() != null && !play.getActId().equals("")) {
+                    WHERE("act_id=#{actId}");
                 }
-                if (play.getSponsor_id() != null && !play.getSponsor_id().equals("")) {
-                    WHERE("sponsor_id=#{sponsor_id}");
+                if (play.getSponsorId() != null && !play.getSponsorId().equals("")) {
+                    WHERE("sponsor_id=#{sponsorId}");
                 }
-                if (play.getPart_id() != null && !play.getPart_id().equals("")) {
-                    WHERE("part_id=#{part_id}");
+                if (play.getPartId() != null && !play.getPartId().equals("")) {
+                    WHERE("part_id=#{partId}");
                 }
-                if (play.getStatus() != null && !play.getStatus().equals("")) {
-                    WHERE("status LIKE CONCAT ('%',#{p_id},'%')");
+                if (play.getStat() != null && !play.getStat().equals("")) {
+                    WHERE("stat LIKE CONCAT ('%',#{stat},'%')");
                 }
                 if (play.getDescription() != null && !play.getDescription().equals("")) {
                     WHERE("description LIKE CONCAT ('%',#{description},'%')");
@@ -66,22 +66,22 @@ public class PlayDynaSqlProvider {
         return new SQL() {
             {
                 UPDATE(PLAYTABLE);
-                if (play.getAct_id() != null && !play.getAct_id().equals("")) {
-                    SET("act_id=#{act_id}");
+                if (play.getActId() != null && !play.getActId().equals("")) {
+                    SET("act_id=#{actId}");
                 }
-                if (play.getSponsor_id() != null && !play.getSponsor_id().equals("")) {
-                    SET("sponsor_id=#{sponsor_id}");
+                if (play.getSponsorId() != null && !play.getSponsorId().equals("")) {
+                    SET("sponsor_id=#{sponsorId}");
                 }
-                if (play.getPart_id() != null && !play.getPart_id().equals("")) {
-                    SET("part_id=#{part_id}");
+                if (play.getPartId() != null && !play.getPartId().equals("")) {
+                    SET("part_id=#{partId}");
                 }
-                if (play.getStatus() != null && !play.getStatus().equals("")) {
-                    SET("status LIKE CONCAT ('%',#{p_id},'%')");
+                if (play.getStat() != null && !play.getStat().equals("")) {
+                    SET("stat=#{stat}");
                 }
                 if (play.getDescription() != null && !play.getDescription().equals("")) {
-                    SET("description LIKE CONCAT ('%',#{description},'%')");
+                    SET("description =#{description}");
                 }
-                WHERE("p_id=#{p_id}");
+                WHERE("id=#{id}");
 
             }
 
@@ -94,20 +94,20 @@ public class PlayDynaSqlProvider {
             {
                 SELECT("*");
                 FROM(PLAYTABLE);
-                if (play.getP_id() != null && !play.getP_id().equals("")) {
-                    WHERE("p_id=#{p_id}");
+                if (play.getId() != null && !play.getId().equals("")) {
+                    WHERE("id=#{id}");
                 }
-                if (play.getAct_id() != null && !play.getAct_id().equals("")) {
-                    WHERE("act_id=#{act_id}");
+                if (play.getActId() != null && !play.getActId().equals("")) {
+                    WHERE("act_id=#{actId}");
                 }
-                if (play.getSponsor_id() != null && !play.getSponsor_id().equals("")) {
-                    WHERE("sponsor_id=#{sponsor_id}");
+                if (play.getSponsorId() != null && !play.getSponsorId().equals("")) {
+                    WHERE("sponsor_id=#{sponsorId}");
                 }
-                if (play.getPart_id() != null && !play.getPart_id().equals("")) {
-                    WHERE("part_id=#{part_id}");
+                if (play.getPartId() != null && !play.getPartId().equals("")) {
+                    WHERE("part_id=#{partId}");
                 }
-                if (play.getStatus() != null && !play.getStatus().equals("")) {
-                    WHERE("status LIKE CONCAT ('%',#{p_id},'%')");
+                if (play.getStat() != null && !play.getStat().equals("")) {
+                    WHERE("stat LIKE CONCAT ('%',#{stat},'%')");
                 }
                 if (play.getDescription() != null && !play.getDescription().equals("")) {
                     WHERE("description LIKE CONCAT ('%',#{description},'%')");

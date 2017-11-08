@@ -24,7 +24,7 @@ public class NoteDynaSqlProvider {
                     WHERE(" title LIKE CONCAT ('%',#{title},'%')");
                 }
                 if (note.getType() != null && !note.getType().equals("")) {
-                    WHERE(" type LIKE CONCAT ('%',#{id},'%')");
+                    WHERE(" type LIKE CONCAT ('%',#{type},'%')");
                 }
             }
 

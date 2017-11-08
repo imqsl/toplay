@@ -17,17 +17,20 @@ public class SeckillDynaSqlProvider {
                 if (seckill.getName() != null && !seckill.getName().equals("")) {
                     VALUES("name", "#{name}");
                 }
-                if (seckill.getSeckill_number() != null && !seckill.getSeckill_number().equals("")) {
-                    VALUES("seckill_number", "#{seckill_number}");
+                if (seckill.getSeckillNumber() != null && !seckill.getSeckillNumber().equals("")) {
+                    VALUES("price", "#{price}");
                 }
-                if (seckill.getStart_time() != null && !seckill.getStart_time().equals("")) {
-                    VALUES("start_time", "#{start_time}");
+                if (seckill.getSeckillNumber() != null && !seckill.getSeckillNumber().equals("")) {
+                    VALUES("seckill_number", "#{seckillNumber}");
                 }
-                if (seckill.getEnd_time() != null && !seckill.getEnd_time().equals("")) {
-                    VALUES("end_time", "#{end_time}");
+                if (seckill.getStartTime() != null && !seckill.getStartTime().equals("")) {
+                    VALUES("start_time", "#{startTime}");
                 }
-                if (seckill.getCreate_time() != null && !seckill.getCreate_time().equals("")) {
-                    VALUES("create_time", "#{create_time}");
+                if (seckill.getEndTime() != null && !seckill.getEndTime().equals("")) {
+                    VALUES("end_time", "#{endTime}");
+                }
+                if (seckill.getCreateTime() != null && !seckill.getCreateTime().equals("")) {
+                    VALUES("create_time", "#{createTime}");
                 }
             }
         }.toString();
@@ -41,19 +44,22 @@ public class SeckillDynaSqlProvider {
                 if (seckill.getName() != null && !seckill.getName().equals("")) {
                     SET("name=#{name}");
                 }
-                if (seckill.getSeckill_number() != null && !seckill.getSeckill_number().equals("")) {
-                    SET("seckill_number=#{seckill_number}");
+                if (seckill.getSeckillNumber() != null && !seckill.getSeckillNumber().equals("")) {
+                    SET("price=#{price}");
                 }
-                if (seckill.getStart_time() != null && !seckill.getStart_time().equals("")) {
-                    SET("start_time=#{start_time}");
+                if (seckill.getSeckillNumber() != null && !seckill.getSeckillNumber().equals("")) {
+                    SET("seckill_number=#{seckillNumber}");
                 }
-                if (seckill.getEnd_time() != null && !seckill.getEnd_time().equals("")) {
-                    SET("end_time=#{end_time}");
+                if (seckill.getStartTime() != null && !seckill.getStartTime().equals("")) {
+                    SET("start_time=#{startTime}");
                 }
-                if (seckill.getCreate_time() != null && !seckill.getCreate_time().equals("")) {
-                    SET("create_time=#{create_time}");
+                if (seckill.getEndTime() != null && !seckill.getEndTime().equals("")) {
+                    SET("end_time=#{endTime}");
                 }
-                WHERE("seckill_id=#{seckill_id}");
+                if (seckill.getCreateTime() != null && !seckill.getCreateTime().equals("")) {
+                    SET("create_time=#{createTime}");
+                }
+                WHERE("id=#{id}");
             }
         }.toString();
     }
@@ -64,8 +70,8 @@ public class SeckillDynaSqlProvider {
             {
                 SELECT("*");
                 FROM(SECKILLTABLE);
-                if (seckill.getSeckill_id() != null && !seckill.getSeckill_id().equals("")) {
-                    WHERE("seckill_id=#{seckill_id}");
+                if (seckill.getId() != null && !seckill.getId().equals("")) {
+                    WHERE("id=#{id}");
                 }
                 if (seckill.getName() != null && !seckill.getName().equals("")) {
                     WHERE("name LIKE CONCAT ('%',#{name},'%')");

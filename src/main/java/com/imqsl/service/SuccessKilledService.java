@@ -12,9 +12,17 @@ public interface SuccessKilledService {
     void addSuccessKilled(SuccessKilled successKilled);
 
     //删除
-    void removeBySeckillId(Integer seckill_id, Integer user_id);
+    void removeById(Integer id);
 
     //查询
-    List<SuccessKilled> findSeckillId(SuccessKilled successKilled);
+    List<SuccessKilled> findSuccessKilled(SuccessKilled successKilled);
+
+    /***
+     * 根据id查询
+     */
+    SuccessKilled findSuccessKilledById(Integer id);
+
+    //修改
+    void modifySuccessKilled(SuccessKilled successKilled);
 
 }

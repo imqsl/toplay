@@ -10,55 +10,57 @@ import static com.imqsl.util.common.ToPlayConstants.MESSAGETABLE;
  */
 public class MessageDynaSqlProvider {
     //动态查询
-    public String selectWithParams(final Message message){
-        return new SQL(){
+    public String selectWithParams(final Message message) {
+        return new SQL() {
             {
                 SELECT("*");
                 FROM(MESSAGETABLE);
-                if (message.getUser_id()!=null &&!message.getUser_id().equals("")){
-                    WHERE(" user_id LIKE CONCAT ('%',#{user_id},'%')");
+                if (message.getUserId() != null && !message.getUserId().equals("")) {
+                    WHERE(" user_id LIKE CONCAT ('%',#{userId},'%')");
                 }
-                if (message.getContent()!=null &&!message.getContent().equals("")){
+                if (message.getContent() != null && !message.getContent().equals("")) {
                     WHERE(" content LIKE CONCAT ('%',#{content},'%')");
                 }
-                if (message.getTitle()!=null &&!message.getTitle().equals("")){
+                if (message.getTitle() != null && !message.getTitle().equals("")) {
                     WHERE(" title LIKE CONCAT ('%',#{title},'%')");
                 }
             }
         }.toString();
     }
+
     //动态插入
-    public String insertWithParams(final Message message){
-        return new SQL(){
+    public String insertWithParams(final Message message) {
+        return new SQL() {
             {
                 INSERT_INTO(MESSAGETABLE);
-                if (message.getUser_id()!=null &&!message.getUser_id().equals("")){
-                    VALUES("user_id","#{user_id}");
+                if (message.getUserId() != null && !message.getUserId().equals("")) {
+                    VALUES("user_id", "#{userId}");
                 }
-                if (message.getContent()!=null &&!message.getContent().equals("")){
-                    VALUES("content","#{content}");
+                if (message.getContent() != null && !message.getContent().equals("")) {
+                    VALUES("content", "#{content}");
                 }
-                if (message.getTitle()!=null &&!message.getTitle().equals("")){
-                    VALUES("title","#{title}");
+                if (message.getTitle() != null && !message.getTitle().equals("")) {
+                    VALUES("title", "#{title}");
                 }
             }
         }.toString();
     }
+
     //动态更新
-    public String updateWithParams(final Message message){
-        return new SQL(){
+    public String updateWithParams(final Message message) {
+        return new SQL() {
             {
                 UPDATE(MESSAGETABLE);
-                if (message.getUser_id()!=null &&!message.getUser_id().equals("")){
-                    SET("user_id=#{user_id}");
+                if (message.getUserId() != null && !message.getUserId().equals("")) {
+                    SET("user_id=#{userId}");
                 }
-                if (message.getContent()!=null &&!message.getContent().equals("")){
+                if (message.getContent() != null && !message.getContent().equals("")) {
                     SET("content=#{content}");
                 }
-                if (message.getTitle()!=null &&!message.getTitle().equals("")){
+                if (message.getTitle() != null && !message.getTitle().equals("")) {
                     SET("title=#{title}");
                 }
-                WHERE("m_id=#{m_id}");
+                WHERE("id=#{id}");
             }
         }.toString();
     }

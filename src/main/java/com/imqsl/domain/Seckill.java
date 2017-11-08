@@ -1,35 +1,43 @@
 package com.imqsl.domain;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.util.Date;
 
 /**
  * Created by imqsl on 2017/9/7.
  */
 public class Seckill {
-    private Integer seckill_id;          //秒杀商品id
+    private Integer id;          //秒杀商品id
     private String name;             //秒杀名称
-    private Integer seckill_number;      //秒杀数量
-    private Date start_time;         //秒杀开始时间
-    private Date end_time;           //秒杀结束时间
-    private Date create_time;        //秒杀创建时间
+    private Float price;             //秒杀价格
+    private Integer seckillNumber;      //秒杀数量
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    private Date startTime;         //秒杀开始时间
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    private Date endTime;           //秒杀结束时间
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    private Date createTime;        //秒杀创建时间
 
     public Seckill() {
     }
 
-    public Seckill(String name, Integer seckill_number, Date start_time, Date end_time, Date create_time) {
+    public Seckill(Integer id, String name, Float price, Integer seckillNumber, Date startTime, Date endTime, Date createTime) {
+        this.id = id;
         this.name = name;
-        this.seckill_number = seckill_number;
-        this.start_time = start_time;
-        this.end_time = end_time;
-        this.create_time = create_time;
+        this.price = price;
+        this.seckillNumber = seckillNumber;
+        this.startTime = startTime;
+        this.endTime = endTime;
+        this.createTime = createTime;
     }
 
-    public Integer getSeckill_id() {
-        return seckill_id;
+    public Integer getId() {
+        return id;
     }
 
-    public void setSeckill_id(Integer seckill_id) {
-        this.seckill_id = seckill_id;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -40,58 +48,56 @@ public class Seckill {
         this.name = name;
     }
 
-    public Integer getSeckill_number() {
-        return seckill_number;
+    public Float getPrice() {
+        return price;
     }
 
-    public void setSeckill_number(Integer seckill_number) {
-        this.seckill_number = seckill_number;
+    public void setPrice(Float price) {
+        this.price = price;
     }
 
-    public Date getStart_time() {
-        return start_time;
+    public Integer getSeckillNumber() {
+        return seckillNumber;
     }
 
-    public void setStart_time(Date start_time) {
-        this.start_time = start_time;
+    public void setSeckillNumber(Integer seckillNumber) {
+        this.seckillNumber = seckillNumber;
     }
 
-    public Date getEnd_time() {
-        return end_time;
+    public Date getStartTime() {
+        return startTime;
     }
 
-    public void setEnd_time(Date end_time) {
-        this.end_time = end_time;
+    public void setStartTime(Date startTime) {
+        this.startTime = startTime;
     }
 
-    public Date getCreate_time() {
-        return create_time;
+    public Date getEndTime() {
+        return endTime;
     }
 
-    public void setCreate_time(Date create_time) {
-        this.create_time = create_time;
+    public void setEndTime(Date endTime) {
+        this.endTime = endTime;
+    }
+
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
     }
 
     @Override
     public String toString() {
         return "Seckill{" +
-                "seckill_id=" + seckill_id +
+                "id=" + id +
                 ", name='" + name + '\'' +
-                ", seckill_number=" + seckill_number +
-                ", start_time=" + start_time +
-                ", end_time=" + end_time +
-                ", create_time=" + create_time +
+                ", price=" + price +
+                ", seckillNumber=" + seckillNumber +
+                ", startTime=" + startTime +
+                ", endTime=" + endTime +
+                ", createTime=" + createTime +
                 '}';
     }
 }
-/*
-* CREATE TABLE `seckill`(
-  `seckill_id` BIGINT(20) NOT NULL AUTO_INCREMENT,
-  `name` VARCHAR(20) NOT NULL ,
-  `seckill_number` INT(10) NOT NULL ,
-  `start_time` DATETIME NOT NULL ,
-  `end_time` DATETIME NOT NULL ,
-  `create_time` DATETIME NOT NULL ,
-  PRIMARY KEY (`seckill_id`)
-)ENGINE =InnoDB DEFAULT CHARSET =utf8;
-* */

@@ -14,17 +14,17 @@ public class SuccessKilledDynaSqlProvider {
         return new SQL() {
             {
                 INSERT_INTO(SUCCESSKILLEDTABLE);
-                if (successKilled.getSeckill_id() != null && !successKilled.getSeckill_id().equals("")) {
-                    VALUES("seckill_id", "#{seckill_id}");
+                if (successKilled.getSeckillId() != null && !successKilled.getSeckillId().equals("")) {
+                    VALUES("seckill_id", "#{seckillId}");
                 }
-                if (successKilled.getUser_id() != null && !successKilled.getUser_id().equals("")) {
-                    VALUES("user_id", "#{user_id}");
+                if (successKilled.getUserId() != null && !successKilled.getUserId().equals("")) {
+                    VALUES("user_id", "#{userId}");
                 }
-                if (successKilled.getStatus() != null && !successKilled.getStatus().equals("")) {
-                    VALUES("status", "#{status}");
+                if (successKilled.getStat() != null && !successKilled.getStat().equals("")) {
+                    VALUES("stat", "#{stat}");
                 }
-                if (successKilled.getCreate_time() != null && !successKilled.getCreate_time().equals("")) {
-                    VALUES("create_time", "#{create_time}");
+                if (successKilled.getCreateTime() != null && !successKilled.getCreateTime().equals("")) {
+                    VALUES("create_time", "#{createTime}");
                 }
             }
         }.toString();
@@ -36,16 +36,34 @@ public class SuccessKilledDynaSqlProvider {
             {
                 SELECT("*");
                 FROM(SUCCESSKILLEDTABLE);
-                if (successKilled.getSeckill_id() != null && !successKilled.getSeckill_id().equals("")) {
-                    WHERE("seckill_id=#{seckill_id}");
+                if (successKilled.getSeckillId() != null && !successKilled.getSeckillId().equals("")) {
+                    WHERE("seckill_id=#{seckillId}");
                 }
-                if (successKilled.getUser_id() != null && !successKilled.getUser_id().equals("")) {
-                    WHERE("user_id=#{user_id}");
+                if (successKilled.getUserId() != null && !successKilled.getUserId().equals("")) {
+                    WHERE("user_id=#{userId}");
                 }
-                if (successKilled.getStatus() != null && !successKilled.getStatus().equals("")) {
-                    WHERE("status=#{status}");
+                if (successKilled.getStat() != null && !successKilled.getStat().equals("")) {
+                    WHERE("stat=#{stat}");
                 }
 
+            }
+        }.toString();
+    }
+    //动态修改
+    public String updateWithParams(final SuccessKilled successKilled) {
+        return new SQL() {
+            {
+                UPDATE(SUCCESSKILLEDTABLE);
+                if (successKilled.getSeckillId() != null && !successKilled.getSeckillId().equals("")) {
+                    SET("seckill_id=#{seckillId}");
+                }
+                if (successKilled.getUserId() != null && !successKilled.getUserId().equals("")) {
+                    SET("user_id=#{userId}");
+                }
+                if (successKilled.getStat() != null && !successKilled.getStat().equals("")) {
+                    SET("stat=#{stat}");
+                }
+                WHERE("id=#{id}");
             }
         }.toString();
     }

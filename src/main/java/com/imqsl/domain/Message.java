@@ -7,8 +7,8 @@ import java.io.Serializable;
  */
 public class Message implements Serializable {
 
-    private Integer m_id;            //消息id
-    private Integer user_id;         //用户id
+    private Integer id;            //消息id
+    private Integer userId;         //用户id
     private String title;        //标题
     private String content;      //内容
 
@@ -16,26 +16,27 @@ public class Message implements Serializable {
 
     }
 
-    public Message(Integer m_id, Integer user_id, String title, String content) {
-        this.user_id = user_id;
+    public Message(Integer id, Integer userId, String title, String content) {
+        this.id = id;
+        this.userId = userId;
         this.title = title;
         this.content = content;
     }
 
-    public Integer getM_id() {
-        return m_id;
+    public Integer getId() {
+        return id;
     }
 
-    public void setM_id(Integer m_id) {
-        this.m_id = m_id;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
-    public Integer getUser_id() {
-        return user_id;
+    public Integer getUserId() {
+        return userId;
     }
 
-    public void setUser_id(Integer user_id) {
-        this.user_id = user_id;
+    public void setUserId(Integer userId) {
+        this.userId = userId;
     }
 
     public String getTitle() {
@@ -56,9 +57,9 @@ public class Message implements Serializable {
 
     @Override
     public String toString() {
-        return "MessageDao{" +
-                "m_id=" + m_id +
-                ", user_id=" + user_id +
+        return "Message{" +
+                "id=" + id +
+                ", userId=" + userId +
                 ", title='" + title + '\'' +
                 ", content='" + content + '\'' +
                 '}';
@@ -66,10 +67,10 @@ public class Message implements Serializable {
 }
 /*
 * CREATE TABLE `message`(
-   `m_id` BIGINT(20) NOT NULL AUTO_INCREMENT,
+   `message_id` BIGINT(20) NOT NULL AUTO_INCREMENT,
    `user_id` BIGINT(20) NOT NULL,
    `title` VARCHAR(45) NOT NULL,
    `content` VARCHAR(255) NOT NULL ,
-   PRIMARY KEY (`m_id`)
+   PRIMARY KEY (`message_id`)
 )ENGINE =InnoDB DEFAULT CHARSET =utf8;
 * */

@@ -1,5 +1,7 @@
 package com.imqsl.domain;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.io.Serializable;
 import java.util.Date;
 
@@ -7,47 +9,60 @@ import java.util.Date;
  * Created by imqsl on 2017/9/7.
  */
 public class Activity implements Serializable {
-    private Integer act_id;        //活动id
-    private String act_title;      //活动标题
-    private String act_content;    //活动内容
+    private String id;        //活动id
+    private String actTitle;      //活动标题
+    private Integer sponsorId;    //活动发起者id
+    private String actContent;    //活动内容
     private String type;           //活动类型
-    private Integer status;        //活动状态
-    private Date create_time;      //创建时间
-    private Date end_time;         //截止时间
+    private Integer stat;        //活动状态
+    private Date createTime;      //创建时间
+
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    private Date endTime;         //截止时间
+
     public Activity() {
     }
 
-    public Activity( String act_title, String act_content, String type, Integer status, Date create_time, Date end_time) {
-        this.act_title = act_title;
-        this.act_content = act_content;
+    public Activity(String actTitle, Integer sponsorId, String actContent, String type, Integer stat, Date createTime, Date endTime) {
+        this.actTitle = actTitle;
+        this.sponsorId = sponsorId;
+        this.actContent = actContent;
         this.type = type;
-        this.status = status;
-        this.create_time = create_time;
-        this.end_time = end_time;
+        this.stat = stat;
+        this.createTime = createTime;
+        this.endTime = endTime;
     }
 
-    public Integer getAct_id() {
-        return act_id;
+    public String getId() {
+        return id;
     }
 
-    public void setAct_id(Integer act_id) {
-        this.act_id = act_id;
+    public void setId(String id) {
+        this.id = id;
     }
 
-    public String getAct_title() {
-        return act_title;
+    public String getActTitle() {
+        return actTitle;
     }
 
-    public void setAct_title(String act_title) {
-        this.act_title = act_title;
+    public void setActTitle(String actTitle) {
+        this.actTitle = actTitle;
     }
 
-    public String getAct_content() {
-        return act_content;
+    public Integer getSponsorId() {
+        return sponsorId;
     }
 
-    public void setAct_content(String act_content) {
-        this.act_content = act_content;
+    public void setSponsorId(Integer sponsorId) {
+        this.sponsorId = sponsorId;
+    }
+
+    public String getActContent() {
+        return actContent;
+    }
+
+    public void setActContent(String actContent) {
+        this.actContent = actContent;
     }
 
     public String getType() {
@@ -58,51 +73,41 @@ public class Activity implements Serializable {
         this.type = type;
     }
 
-    public Integer getStatus() {
-        return status;
+    public Integer getStat() {
+        return stat;
     }
 
-    public void setStatus(Integer status) {
-        this.status = status;
+    public void setStat(Integer stat) {
+        this.stat = stat;
     }
 
-    public Date getCreate_time() {
-        return create_time;
+    public Date getCreateTime() {
+        return createTime;
     }
 
-    public void setCreate_time(Date create_time) {
-        this.create_time = create_time;
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
     }
 
-    public Date getEnd_time() {
-        return end_time;
+    public Date getEndTime() {
+        return endTime;
     }
 
-    public void setEnd_time(Date end_time) {
-        this.end_time = end_time;
+    public void setEndTime(Date endTime) {
+        this.endTime = endTime;
     }
 
     @Override
     public String toString() {
         return "Activity{" +
-                "act_id=" + act_id +
-                ", act_title='" + act_title + '\'' +
-                ", act_content='" + act_content + '\'' +
+                "id='" + id + '\'' +
+                ", actTitle='" + actTitle + '\'' +
+                ", sponsorId=" + sponsorId +
+                ", actContent='" + actContent + '\'' +
                 ", type='" + type + '\'' +
-                ", status=" + status +
-                ", create_time=" + create_time +
-                ", end_time=" + end_time +
+                ", stat=" + stat +
+                ", createTime=" + createTime +
+                ", endTime='" + endTime + '\'' +
                 '}';
     }
 }
-/*
-* CREATE TABLE `activity`(
-  `act_id` BIGINT(20) NOT NULL AUTO_INCREMENT,
-  `act_title` VARCHAR(45) NOT NULL ,
-  `act_content` VARCHAR(255) NOT NULL ,
-  `type` INT(4) NOT NULL ,
-  `status` INT(4) NOT NULL,
-  PRIMARY KEY (`act_id`)
-)ENGINE =InnoDB DEFAULT CHARSET =utf8;
-*
-* */

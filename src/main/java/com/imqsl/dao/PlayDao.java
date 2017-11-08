@@ -2,32 +2,39 @@ package com.imqsl.dao;
 
 import com.imqsl.dao.provider.PlayDynaSqlProvider;
 import com.imqsl.domain.Play;
-import org.apache.ibatis.annotations.DeleteProvider;
-import org.apache.ibatis.annotations.InsertProvider;
-import org.apache.ibatis.annotations.SelectProvider;
-import org.apache.ibatis.annotations.UpdateProvider;
+import org.apache.ibatis.annotations.*;
 
 import java.util.List;
+
+import static com.imqsl.util.common.ToPlayConstants.PLAYTABLE;
 
 /**
  * Created by imqsl on 2017/9/11.
  */
 public interface PlayDao {
 
+    //根据id查询
+    @Select("select * from "+PLAYTABLE+" where id=#{id}")
+    Play selectById(Integer id);
+
+    //根据id删除
+    @Delete("delete from "+PLAYTABLE+" where id=#{id}")
+    void deleteById(Integer id);
+
     //动态查询
     @SelectProvider(type = PlayDynaSqlProvider.class, method = "selectWithParams")
-    List<Play> dynaSelect(Play play);
+    List<Play> selectWithParams(Play play);
 
     //动态删除
     @DeleteProvider(type = PlayDynaSqlProvider.class, method = "deleteWithParams")
-    void dynadDelete(Play play);
+    void delete(Play play);
 
     //动态插入
     @InsertProvider(type = PlayDynaSqlProvider.class, method = "insertWithParams")
-    void dynaInsert(Play play);
+    void insert(Play play);
 
     //动态修改
     @UpdateProvider(type = PlayDynaSqlProvider.class, method = "updateWithParams")
-    void dynaUpdate(Play play);
+    void update(Play play);
 
 }

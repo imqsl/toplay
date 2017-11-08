@@ -1,5 +1,7 @@
 package com.imqsl.domain;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.io.Serializable;
 import java.util.Date;
 
@@ -8,68 +10,72 @@ import java.util.Date;
  */
 public class SuccessKilled implements Serializable {
 
-    private Integer seckill_id;        //秒杀商品id
-    private Integer user_id;           //用户id
-    private Integer status;            //状态
-    private Date create_time;      //创建时间
+    private Integer id;        //秒杀商品id
+    private Integer seckillId;
+    private Integer userId;           //用户id
+    private Integer stat;            //状态
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    private Date createTime;      //创建时间
 
     public SuccessKilled() {
     }
 
-    public SuccessKilled(Integer seckill_id, Integer user_id, Integer status, Date create_time) {
-        this.seckill_id = seckill_id;
-        this.user_id = user_id;
-        this.status = status;
-        this.create_time = create_time;
+    public SuccessKilled(Integer id, Integer seckillId, Integer userId, Integer stat, Date createTime) {
+        this.id = id;
+        this.seckillId = seckillId;
+        this.userId = userId;
+        this.stat = stat;
+        this.createTime = createTime;
     }
 
-    public Integer getSeckill_id() {
-        return seckill_id;
+    public Integer getId() {
+        return id;
     }
 
-    public void setSeckill_id(Integer seckill_id) {
-        this.seckill_id = seckill_id;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
-    public Integer getUser_id() {
-        return user_id;
+    public Integer getSeckillId() {
+        return seckillId;
     }
 
-    public void setUser_id(Integer user_id) {
-        this.user_id = user_id;
+    public void setSeckillId(Integer seckillId) {
+        this.seckillId = seckillId;
     }
 
-    public Integer getStatus() {
-        return status;
+    public Integer getUserId() {
+        return userId;
     }
 
-    public void setStatus(Integer status) {
-        this.status = status;
+    public void setUserId(Integer userId) {
+        this.userId = userId;
     }
 
-    public Date getCreate_time() {
-        return create_time;
+    public Integer getStat() {
+        return stat;
     }
 
-    public void setCreate_time(Date create_time) {
-        this.create_time = create_time;
+    public void setStat(Integer stat) {
+        this.stat = stat;
+    }
+
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
     }
 
     @Override
     public String toString() {
         return "SuccessKilled{" +
-                "seckill_id=" + seckill_id +
-                ", user_id=" + user_id +
-                ", status=" + status +
-                ", create_time=" + create_time +
+                "id=" + id +
+                ", seckillId=" + seckillId +
+                ", userId=" + userId +
+                ", stat=" + stat +
+                ", createTime=" + createTime +
                 '}';
     }
 }
-/*
-* CREATE TABLE `successkilled`(
-  `seckill_id` BIGINT(20) NOT NULL ,
-  `user_id` BIGINT(20) NOT NULL ,
-  `status` INT(4) NOT NULL DEFAULT -1,
-  `create_time` DATETIME NOT NULL
-)ENGINE =InnoDB DEFAULT CHARSET =utf8;
-* */

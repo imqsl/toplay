@@ -13,30 +13,30 @@ import static com.imqsl.util.common.ToPlayConstants.MESSAGETABLE;
  */
 public interface MessageDao {
     //根据id查询消息
-    @Select("select * from " + MESSAGETABLE + " where m_id=#{m_id}")
-    Message selectByM_id(Integer m_id);
+    @Select("select * from " + MESSAGETABLE + " where id=#{id}")
+    Message selectById(Integer id);
 
     //根据用户id查询本用户的所有信息
-    @Select("select * from " + MESSAGETABLE + " where user_id=#{user_id}")
-    List<Message> selectByUser_id(Integer user_id);
+    @Select("select * from " + MESSAGETABLE + " where user_id=#{userId}")
+    List<Message> selectByUserId(Integer userId);
 
     //动态查询消息
     @SelectProvider(type = MessageDynaSqlProvider.class, method = "selectWithParams")
-    List<Message> dynaSelect(Message message);
+    List<Message> selectWithParams(Message message);
 
     //根据id删除消息
-    @Delete("delete from " + MESSAGETABLE + " where m_id=#{m_id}")
-    void deleteById(Integer m_id);
+    @Delete("delete from " + MESSAGETABLE + " where id=#{id}")
+    void deleteById(Integer id);
 
     //根据用户id删除本用户所有消息
-    @Delete("delete from " + MESSAGETABLE + " where user_id=#{user_id}")
-    void deleteAllByUserId(Integer user_id);
+    @Delete("delete from " + MESSAGETABLE + " where user_id=#{userId}")
+    void deleteAllByUserId(Integer userId);
 
     //动态增加消息
     @SelectProvider(type = MessageDynaSqlProvider.class, method = "insertWithParams")
-    void dynaInsert(Message message);
+    void insert(Message message);
 
     //动态更新
     @SelectProvider(type = MessageDynaSqlProvider.class, method = "updateWithParams")
-    void dynaUpdate(Message message);
+    void update(Message message);
 }

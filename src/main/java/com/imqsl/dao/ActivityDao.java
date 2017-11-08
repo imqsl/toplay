@@ -14,17 +14,24 @@ import static com.imqsl.util.common.ToPlayConstants.ACTIVITYTABLE;
  * Created by imqsl on 2017/9/8.
  */
 public interface ActivityDao {
-    //根据id查询活动
-    @Select("select * from " + ACTIVITYTABLE + " where act_id=#{act_id}")
-    Activity selectById(Integer act_id);
+    //根据发起者id查询活动
+    @Select("select * from " + ACTIVITYTABLE + " where sponsor_id=#{sponsorId}")
+    List<Activity> selectBySponsorId(Integer sponsorId);
+
+
+    //根据活动id查询活动
+    @Select("select * from " + ACTIVITYTABLE + " where id=#{id}")
+    Activity selectById(String id);
+
 
     //根据id删除活动
-    @Delete("delete from " + ACTIVITYTABLE + " where act_id=#{act_id}")
-    void deleteById(Integer act_id);
+    @Delete("delete from " + ACTIVITYTABLE + " where id=#{id}")
+    void deleteById(String id);
 
     //动态查询
     @SelectProvider(type = ActivityDynaSqlProvider.class, method = "selectWithParams")
-    List<Activity> dynaSelect(Activity activity);
+    List<Activity> selectWithParams(Activity activity);
+
 
     //动态查询活动总数
     @SelectProvider(type = ActivityDynaSqlProvider.class, method = "count")
@@ -32,10 +39,10 @@ public interface ActivityDao {
 
     //动态插入
     @SelectProvider(type = ActivityDynaSqlProvider.class, method = "insertWithParams")
-    void dynaInsert(Activity activity);
+    void insert(Activity activity);
 
     //动态更新
     @SelectProvider(type = ActivityDynaSqlProvider.class, method = "updateWithParams")
-    void dynaUpdate(Activity activity);
+    void update(Activity activity);
 
 }

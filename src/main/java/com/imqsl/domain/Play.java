@@ -7,62 +7,63 @@ import java.io.Serializable;
  */
 public class Play implements Serializable {
 
-    private Integer p_id;          //用户活动id
-    private Integer act_id;        //活动id
-    private Integer sponsor_id;    //发起者id
-    private Integer part_id;       //参与者id
-    private Integer status;        //状态
+    private Integer id;          //用户活动id
+    private String actId;        //活动id
+    private Integer sponsorId;    //发起者id
+    private Integer partId;       //参与者id
+    private Integer stat;        //状态
     private String description;//描述
 
     public Play() {
     }
 
-    public Play(Integer act_id, Integer sponsor_id, Integer part_id, Integer status, String description) {
-        this.act_id = act_id;
-        this.sponsor_id = sponsor_id;
-        this.part_id = part_id;
-        this.status = status;
+    public Play(Integer id, String actId, Integer sponsorId, Integer partId, Integer stat, String description) {
+        this.id = id;
+        this.actId = actId;
+        this.sponsorId = sponsorId;
+        this.partId = partId;
+        this.stat = stat;
         this.description = description;
     }
 
-    public Integer getP_id() {
-        return p_id;
+    public Integer getId() {
+        return id;
     }
 
-    public void setP_id(Integer p_id) {
-        this.p_id = p_id;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
-    public Integer getAct_id() {
-        return act_id;
+    public String getActId() {
+        return actId;
     }
 
-    public void setAct_id(Integer act_id) {
-        this.act_id = act_id;
+    public void setActId(String actId) {
+        this.actId = actId;
     }
 
-    public Integer getSponsor_id() {
-        return sponsor_id;
+    public Integer getSponsorId() {
+        return sponsorId;
     }
 
-    public void setSponsor_id(Integer sponsor_id) {
-        this.sponsor_id = sponsor_id;
+    public void setSponsorId(Integer sponsorId) {
+        this.sponsorId = sponsorId;
     }
 
-    public Integer getPart_id() {
-        return part_id;
+    public Integer getPartId() {
+        return partId;
     }
 
-    public void setPart_id(Integer part_id) {
-        this.part_id = part_id;
+    public void setPartId(Integer partId) {
+        this.partId = partId;
     }
 
-    public Integer getStatus() {
-        return status;
+    public Integer getStat() {
+        return stat;
     }
 
-    public void setStatus(Integer status) {
-        this.status = status;
+    public void setStat(Integer stat) {
+        this.stat = stat;
     }
 
     public String getDescription() {
@@ -76,23 +77,23 @@ public class Play implements Serializable {
     @Override
     public String toString() {
         return "Play{" +
-                "p_id=" + p_id +
-                ", act_id=" + act_id +
-                ", sponsor_id=" + sponsor_id +
-                ", part_id=" + part_id +
-                ", status=" + status +
+                "id=" + id +
+                ", actId='" + actId + '\'' +
+                ", sponsorId=" + sponsorId +
+                ", partId=" + partId +
+                ", stat=" + stat +
                 ", description='" + description + '\'' +
                 '}';
     }
 }
 /*
 * CREATE TABLE `play`(
-  `p_id` BIGINT(20) NOT NULL AUTO_INCREMENT,
+  `play_id` BIGINT(20) NOT NULL AUTO_INCREMENT,
   `act_id` BIGINT(20) NOT NULL ,
   `sponsor_id` BIGINT(20) NOT NULL ,
   `part_id` BIGINT(20) NOT NULL ,
-  `status` BIGINT(4) NOT NULL ,
+  `stat` BIGINT(4) NOT NULL ,
   `description` VARCHAR(255) NOT NULL ,
-  PRIMARY KEY (`p_id`)
+  PRIMARY KEY (`play_id`)
 )ENGINE =InnoDB DEFAULT CHARSET =utf8;
 * */

@@ -6,12 +6,12 @@ import java.io.Serializable;
  * Created by imqsl on 2017/9/7.
  */
 public class User implements Serializable {
-    private Integer user_id;           //id
+    private Integer id;           //id
     private String gender;            //性别
     private String username;         //用户名
     private String password;         //密码
-    private Integer stu_id;              //学号
-    private Integer phone;               //电话
+    private Long stuId;              //学号
+    private Long phone;               //电话
     private String address;          //地址
     private String college;          //学院
     private Integer credit;              //信用
@@ -20,23 +20,24 @@ public class User implements Serializable {
         super();
     }
 
-    public User(String gender, String username, String password, Integer stu_id, Integer phone, String address, String college, Integer credit) {
+    public User(Integer id, String gender, String username, String password, Long stuId, Long phone, String address, String college, Integer credit) {
+        this.id = id;
         this.gender = gender;
         this.username = username;
         this.password = password;
-        this.stu_id = stu_id;
+        this.stuId = stuId;
         this.phone = phone;
         this.address = address;
         this.college = college;
         this.credit = credit;
     }
 
-    public Integer getUser_id() {
-        return user_id;
+    public Integer getId() {
+        return id;
     }
 
-    public void setUser_id(Integer user_id) {
-        this.user_id = user_id;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getGender() {
@@ -63,19 +64,19 @@ public class User implements Serializable {
         this.password = password;
     }
 
-    public Integer getStu_id() {
-        return stu_id;
+    public Long getStuId() {
+        return stuId;
     }
 
-    public void setStu_id(int stu_id) {
-        this.stu_id = stu_id;
+    public void setStuId(Long stuId) {
+        this.stuId = stuId;
     }
 
-    public Integer getPhone() {
+    public Long getPhone() {
         return phone;
     }
 
-    public void setPhone(Integer phone) {
+    public void setPhone(Long phone) {
         this.phone = phone;
     }
 
@@ -99,18 +100,18 @@ public class User implements Serializable {
         return credit;
     }
 
-    public void setCredit(int credit) {
+    public void setCredit(Integer credit) {
         this.credit = credit;
     }
 
     @Override
     public String toString() {
         return "User{" +
-                "user_id=" + user_id +
-                ", gender=" + gender +
+                "id=" + id +
+                ", gender='" + gender + '\'' +
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
-                ", stu_id=" + stu_id +
+                ", stuId=" + stuId +
                 ", phone=" + phone +
                 ", address='" + address + '\'' +
                 ", college='" + college + '\'' +

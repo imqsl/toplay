@@ -14,15 +14,14 @@ import static com.imqsl.util.common.ToPlayConstants.NOTETABLE;
 public interface NoteDao {
     //动态插入公告
     @SelectProvider(type = NoteDynaSqlProvider.class, method = "insertWithParams")
-    void dynaInsertNote(Note note);
+    void insert(Note note);
 
-    //根据id查询公告
     @Select("select * from " + NOTETABLE + " where id=#{id}")
     Note selectById(Integer id);
 
     //根据id删除公告
     @Delete("delete from " + NOTETABLE + " where id=#{id}")
-    void deleteNote(Integer id);
+    void deleteById(Integer id);
 
     //动态查询
     @SelectProvider(type = NoteDynaSqlProvider.class, method = "selectWithParams")
@@ -30,5 +29,5 @@ public interface NoteDao {
 
     //更新公告
     @SelectProvider(type = NoteDynaSqlProvider.class, method = "updateWithParams")
-    void dynaUpdate(Note note);
+    void update(Note note);
 }
